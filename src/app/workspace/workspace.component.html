@@ -1,0 +1,17 @@
+<ActionBar title="WrrKrr"></ActionBar>
+
+<FlexboxLayout>
+    <StackLayout class="form">
+        <Image src="~/app/images/logo.png"></Image>
+
+        <TextField hint="Workspace Name"
+                   autocorrect="false" autocapitalizationType="none"
+                   [(ngModel)]="workspaceName" class="input input-border"></TextField>
+        <Button [text]="'Continue'" class="btn btn-primary" (tap)="submit()"></Button>
+        <Button [text]="'Sign up'" (tap)="signUpPage()"></Button>
+    </StackLayout>
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'"
+                       row="1" horizontalAlignment="center" verticalAlignment="center">
+    </ActivityIndicator>
+</FlexboxLayout>
+

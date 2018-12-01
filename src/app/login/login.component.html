@@ -1,0 +1,21 @@
+<ActionBar title="Groceries"></ActionBar>
+
+<FlexboxLayout>
+    <StackLayout class="form">
+        <Image src="~/app/images/logo.png"></Image>
+        <Label class="label text-center m-2 p-2 h2" text="@{{workspaceName}}"></Label>
+        <TextField hint="Email Address" keyboardType="email"
+                   autocorrect="false" autocapitalizationType="none"
+                   [(ngModel)]="email" class="input input-border"></TextField>
+        <TextField hint="Password" secure="true"
+                   [(ngModel)]="password" class="input input-border"></TextField>
+
+        <Button [text]="'Sign in'" class="btn btn-primary"
+                (tap)="submit()"></Button>
+        <Button [text]="'Back to workspace'" (tap)="workspacePage()"></Button>
+    </StackLayout>
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'"
+                       row="1" horizontalAlignment="center" verticalAlignment="center">
+    </ActivityIndicator>
+</FlexboxLayout>
+

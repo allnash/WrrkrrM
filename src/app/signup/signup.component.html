@@ -1,0 +1,23 @@
+<ActionBar title="WrrKrr"></ActionBar>
+
+<FlexboxLayout>
+    <StackLayout class="form">
+        <Image src="~/app/images/logo.png"></Image>
+        <TextField hint="Workspace Name" keyboardType="email"
+                   autocorrect="false" autocapitalizationType="none"
+                   [(ngModel)]="workspaceName" class="input input-border"></TextField>
+        <TextField hint="Email Address" keyboardType="email"
+                   autocorrect="false" autocapitalizationType="none"
+                   [(ngModel)]="email" class="input input-border"></TextField>
+        <TextField hint="Password" secure="true"
+                   [(ngModel)]="password" class="input input-border"></TextField>
+
+        <Button [text]="'Sign up'" class="btn btn-primary"
+                (tap)="submit()"></Button>
+        <Button [text]="'Back to login'" (tap)="workspacePage()"></Button>
+    </StackLayout>
+    <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'"
+                       row="1" horizontalAlignment="center" verticalAlignment="center">
+    </ActivityIndicator>
+</FlexboxLayout>
+

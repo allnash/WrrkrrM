@@ -1,0 +1,18 @@
+<StackLayout backgroundColor="white">
+    <GridLayout rows="auto" columns="75,*,75" class="action-bar p-10">
+        <Button text="Close" class="text-left action-item" row="0" col="0" (tap)="close()"></Button>
+        <Label text="OmegaTrace Card" class="text-center action-bar-title" row="0" col="1"></Label>
+    </GridLayout>
+    <stack-layout horizontalAlignment="center" marginLeft="20" marginRight="20" marginTop="20">
+        <Image row="0" col="0" src="~/app/images/card.jpg" marginLeft="-20" marginRight="-20" marginTop="-20" height="200"
+               stretch="aspectFill"></Image>
+        <Image row="0" col="1" src="~/app/images/o.png" stretch="aspectFill" marginTop="-40" marginLeft="-375"
+               height="30" width="30"></Image>
+        <Label row="2" col="0" class="label text-primary h2 m-t-20" text="{{cardId}}" textWrap="true" ></Label>
+        <Label row="3" col="0" class="label text-muted h3 m-t-10" text="{{cardUUID}}" textWrap="true"></Label>
+        <Label row="4" col="0" class="label text-muted h3 action-name m-t-10 m-b-10" text="{{cardName}}" textWrap="true"></Label>
+        <StackLayout class="hr-light m-10"></StackLayout>
+        <Button text="Associate identity" class="btn btn-primary btn-aqua btn-rounded-lg"
+                (tap)="onAssociateButtonTap()"></Button>
+    </stack-layout>
+</StackLayout>

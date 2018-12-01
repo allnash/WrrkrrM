@@ -1,0 +1,31 @@
+.btn-orange {
+    background-color: #f38c00;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+}
+.btn-bluetooth {
+    background-color: #080c7b;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+}
+.item-name {
+    color: #303c47;
+    font-family: 'Open Sans', 'OpenSans-Bold';
+    font-weight: bold;
+    padding: 2;
+}
+
+.item-desc {
+    color: #303c47;
+    font-family: 'Open Sans', 'OpenSans-Regular';
+    padding: 2;
+}
+
+.item-price {
+    color: #c40404;
+    font-family: 'Open Sans', 'OpenSans-Bold';
+    font-weight: bold;
+    padding: 2;
+}

@@ -1,0 +1,42 @@
+<ActionBar class="action-bar">
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+                ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Browse"></Label>
+</ActionBar>
+
+<StackLayout class="page page-content">
+    <GridLayout columns="*, *" rows="auto, auto, auto, auto" horizontalAlignment="center" class="m-t-15">
+        <Button row="0" colSpan="2" text="Check bluetooth" (tap)="doIsEnableBluetooth()"
+                class="btn btn-rounded-lg btn-bluetooth" width="300"></Button>
+        <Label row="1" colSpan="2" text="tap and scan 10 seconds for:" class="hint" textWrap="true"></Label>
+        <Button row="2" col="0" text="Reader" (tap)="doStartScanningOmegaTraceReaders()" class="btn btn-orange btn-rounded-lg"></Button>
+        <Button row="2" col="1" text="ID Card" (tap)="doStartScanningOmegaTraceCards()" class="btn btn-primary btn-rounded-lg"></Button>
+        <Button row="3" colSpan="2" text="Stop scan" (tap)="doStopScanning()" class="btn btn-outline"></Button>
+    </GridLayout>
+    <ActivityIndicator busy="{{ isLoading }}"></ActivityIndicator>
+    <GridLayout horizontalAlignment="center" class="m-t-15">
+        <ListView [items]="peripherals" backgroundColor="#e6e6e6" borderWidth="0" separatorColor="#e6e6e6" (itemLoading)="onItemLoading($event)">>
+            <ng-template let-item="item">
+                <StackLayout orientation="vertical" backgroundColor="white" margin="15" borderRadius="10" padding="10">
+                    <Image src="~/app/images/card.jpg" marginLeft="-10" marginRight="-10" marginTop="-10" height="100"
+                           stretch="aspectFill"></Image>
+                    <Label [text]="item.name" class="item-name m-t-10" textWrap="true"></Label>
+                    <Label [text]="item.UUID" class="item-desc" textWrap="true"></Label>
+                    <Label [text]="item.distance" class="item-price"></Label>
+                    <Button text="Select" (tap)="showModal(item.UUID, $event)" class="btn btn-primary btn-rounded-lg btn-aqua"></Button>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </GridLayout>
+</StackLayout>
