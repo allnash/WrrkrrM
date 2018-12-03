@@ -1,10 +1,10 @@
 <ActionBar class="action-bar">
-    <!-- 
+    <!--
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
     -->
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
+    <!--
     Use the ActionItem for IOS with position set to left. Using the
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
@@ -16,6 +16,7 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf013;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+    <StackLayout orientation="vertical" width="80%" class="p-10">
+        <Button row="3" colSpan="2" text="Logout" (tap)="doLogout()" class="btn btn-rounded-lg btn-red"></Button>
+    </StackLayout>
 </GridLayout>

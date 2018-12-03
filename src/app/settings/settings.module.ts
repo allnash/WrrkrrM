@@ -10,7 +10,7 @@ import { SettingsComponent } from "./settings.component";
         SettingsRoutingModule
     ],
     declarations: [
-        SettingsComponent
+        SettingsComponent,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

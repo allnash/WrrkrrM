@@ -9,29 +9,36 @@ export class UserService {
     }
 
     login(email: string, password: string) {
-        let headers = this.createRequestHeader();
+        const headers = this.createRequestHeader();
         return this.http.post(Config.getWorkspace(User.workspaceName) + "/app/login",
-            {email: email, password: password},
-            {headers: headers});
+            {email, password},
+            {headers});
     }
 
     register() {
-        let headers = this.createRequestHeader();
+        const headers = this.createRequestHeader();
         return this.http.post(Config.getWorkspace(User.workspaceName) + "/app/signup",
             {workspace_name: User.workspaceName, email: User.email, password: User.password},
-            {headers: headers});
+            {headers});
     }
 
     verifyWorkspace(workspaceName: string) {
-        let headers = this.createRequestHeader();
+        const headers = this.createRequestHeader();
         return this.http.post(Config.getWorkspace(workspaceName) + "/app/verifyworkspace",
             {name: workspaceName},
-            {headers: headers});
+            {headers});
+    }
+
+    logout(sessionId: string) {
+        const headers = this.createRequestHeader();
+        return this.http.post(Config.getWorkspace(User.workspaceName) + "/app/logout",
+            {session_id: sessionId},
+            {headers});
     }
 
     private createRequestHeader() {
         // set headers here e.g.
-        let headers = new HttpHeaders({
+        const headers = new HttpHeaders({
             "Content-Type": "application/json",
         });
 
