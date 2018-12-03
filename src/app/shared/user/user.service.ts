@@ -31,7 +31,7 @@ export class UserService {
 
     logout(sessionId: string) {
         const headers = this.createRequestHeader();
-        return this.http.post(Config.getWorkspace(User.workspaceName) + "/app/logout",
+        return this.http.post(Config.getWorkspace(User.workspaceName) + "/app/removesession",
             {session_id: sessionId},
             {headers});
     }
